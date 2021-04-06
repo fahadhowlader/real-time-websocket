@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR.joinpath('templates')
+            os.path.join(BASE_DIR, "templates")
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jokes_project.wsgi.application'
 
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
