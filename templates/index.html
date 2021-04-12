@@ -17,5 +17,26 @@
             </div>
         </div>
     </div>
+    <script>
+        var socket = new WebSocket("ws://localhost:8000/ws/jokes/")
+        socket.onmessage = function(e){
+            console.log("onopen", e)
+            console.log(e.data)
+            var joke = e.data
+            document.querySelector("#jokes").innerHTML = joke
+        }
+
+        socket.onopen = function(e){
+            console.log("onopen", e)
+        }
+
+        socket.onerror = function(e){
+            console.log("onerror", e)
+        }
+
+        socket.onclose = function(e){
+            console.log("onclose", e)
+        }
+    </script>
 </body>
 </html>
